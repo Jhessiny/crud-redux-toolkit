@@ -23,7 +23,7 @@ const UserItem = ({ user }) => {
           gap: "10px",
         }}
       >
-        <EditForm />
+        <EditForm username={user.username} id={user.id} />
         <Button variant="contained" color="error">
           Delete
         </Button>

@@ -16,7 +16,8 @@ export const userSlice = createSlice({
       const index = state.value.findIndex(
         (user) => user.id === action.payload.id
       );
-      state.value[index] = action.payload;
+      console.log("edit", index);
+      state.value[index].username = action.payload.username;
     },
   },
 });
