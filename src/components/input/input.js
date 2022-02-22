@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 
 import { styled } from "@mui/material/styles";
+import React from "react";
 
 const StyledTextField = styled(TextField)({
   input: {
@@ -12,8 +13,11 @@ const StyledTextField = styled(TextField)({
   },
 });
 
-const TextInput = (props) => {
-  return <StyledTextField {...props} />;
-};
+const TextInput = React.forwardRef(({ color, ...InputProps }, ref) => {
+  if (color === "dark")
+    return <StyledTextField {...InputProps} inputRef={ref} />;
+
+  return <TextField {...InputProps} inputRef={ref} />;
+});
 
 export default TextInput;
