@@ -3,6 +3,7 @@ import TextInput from "../input/input";
 import { addUser } from "../../store/features/users";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
+import { toast } from "react-toastify";
 
 const UserForm = () => {
   const nameInput = useRef(null);
@@ -17,8 +18,8 @@ const UserForm = () => {
       name: nameInput.current.value,
       username: usernameInput.current.value,
     };
-    console.log(nameInput);
     dispatch(addUser(newUser));
+    toast.success("User added with success!");
   };
 
   return (

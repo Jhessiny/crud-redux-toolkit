@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { deleteUser } from "../../store/features/users";
 import EditForm from "../edit-form/edit-form";
 
@@ -15,6 +16,7 @@ const UserItem = ({ user }) => {
 
   const handleDelete = () => {
     if (user.id) dispatch(deleteUser(user.id));
+    toast.success("User delete with success!");
   };
 
   return (

@@ -1,6 +1,8 @@
 import { Button, Box, TextField } from "@mui/material";
 import { editUser } from "../../store/features/users";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+
 import { useState } from "react";
 
 const EditForm = ({ id, username: initialUsername }) => {
@@ -10,6 +12,7 @@ const EditForm = ({ id, username: initialUsername }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(editUser({ id, username }));
+    toast.success("Username edited with success!");
   };
 
   return (
