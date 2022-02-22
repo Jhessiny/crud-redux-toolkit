@@ -6,9 +6,17 @@ import {
   CardHeader,
   Typography,
 } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../../store/features/users";
 import EditForm from "../edit-form/edit-form";
 
 const UserItem = ({ user }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    if (user.id) dispatch(deleteUser(user.id));
+  };
+
   return (
     <Card>
       <CardHeader title={user.name} sx={{ py: 1 }} />
@@ -24,7 +32,7 @@ const UserItem = ({ user }) => {
         }}
       >
         <EditForm username={user.username} id={user.id} />
-        <Button variant="contained" color="error">
+        <Button variant="contained" color="error" onClick={handleDelete}>
           Delete
         </Button>
       </CardActions>

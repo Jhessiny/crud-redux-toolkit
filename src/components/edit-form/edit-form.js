@@ -9,7 +9,6 @@ const EditForm = ({ id, username: initialUsername }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username);
     dispatch(editUser({ id, username }));
   };
 
